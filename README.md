@@ -23,7 +23,7 @@ sub esp, 4;
 mov [esp], eax. 
 Iar instructiunea pop eax:
 mov eax, [esp]; 
-add esp, 4**
+add esp, 4.**
 
 Laborator 07: Apeluri de funcții
 -----
@@ -31,7 +31,7 @@ Atunci când apelăm o funcție, pașii sunt următorii:
 Punem argumentele pe stivă, apelul de tip push fiind în ordinea inversă în care sunt trimiși ca argumente funcției.
 Apelăm call.
 Restaurăm stiva la sfârșitul apelului.
-**Apelul call poate fi echivalat cu urm secventa : push eip ; jmp function_name - se intampla la nivelul apelantului(caller). Adică și apelul call folosește în continuare stiva și salvează adresa ----------------următoarei instrucțiuni------------------, cea de după call numită și instrucțiunea de retur sau adresa de retur (return address). Aceasta este necesară pentru a ști, în apelat, unde să revenim. 
+**Apelul call poate fi echivalat cu urm secventa : push eip ; jmp function_name - se intampla la nivelul apelantului(caller). Adică și apelul call folosește în continuare stiva și salvează adresa -------următoarei instrucțiuni--------, cea de după call numită și instrucțiunea de retur sau adresa de retur (return address). Aceasta este necesară pentru a ști, în apelat, unde să revenim. 
 Suplimentar, în apelat, la începutul său (numit preambul, preamble) se salvează frame pointer-ul (în arhitectura i386 este vorba de registrul ebp) urmând ca frame pointer-ul să refere adresa curentă de pe stivă (adică tocmai fostul frame pointer). 
 Deși nu este obligatorie, salvarea frame pointer-ului ajută la debugging și este în cele mai multe cazuri folosită. Din aceste motive, orice apel de funcție va avea în general, preambulul: push ebp (si) mov ebp, esp.
 Aceste modificări au loc în apelat. De aceea este responsabilitatea apelatului să restaureze stiva la vechea sa valoare. De aceea este uzuală existența unui epilog care să readucă stiva la starea sa inițială; acest epilog este: leave.
