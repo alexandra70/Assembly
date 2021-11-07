@@ -3,13 +3,19 @@
 Laborator 01: Reprezentarea numerelor, operații pe biți și lucru cu memoria
 -----
 **Grup de 8 biți formează un octet (byte).
-  XOR - ac valoare => 0, altfel 1.**
+  XOR - ac valoare => 0, altfel 1.
 În sistemul hexazecimal (baza 16), valorile sunt reprezentate sub forma unui șir de caractere din intervalul '0'-'9' sau 'a'-'f'. Un octet este format din două astfel de caractere, deci fiecare caracter corespunde unui grup de 4 biți (un nibble).
-**În memoria unui calculator o valoare este memorată pe un număr fix de biți. În funcție de arhitectură fiecare procesor poate accesa un număr maxim de biți în cadrul unei operații, acest număr de biți reprezintă dimensiunea cuvântului (word size).**
+În memoria unui calculator o valoare este memorată pe un număr fix de biți. În funcție de arhitectură fiecare procesor poate accesa un număr maxim de biți în cadrul unei operații, acest număr de biți reprezintă dimensiunea cuvântului (word size).**
 
 
 Laborator 02: Operații cu memoria. Introducere în GDB
 -----
+**Pointeri la void
+Un pointer la void este un pointer care nu are un tip asociat. Pointerii la void au o flexibilitate mare deoarece pot pointa la orice tip de date, dar au și o limitare la fel de mare, și anume că nu pot fi dereferențiați, iar pentru a putea fi folosiți în operații cu pointeri trebuie convertiți la un tip de date cunoscut.
+Interpretarea datelor din memorie
+Pe cele mai multe calculatoare moderne, cea mai mică unitate de date care poate fi adresată este byte-ul/octetul (8 biți), acest lucru însemnând că putem privi datele în memorie drept o înșiruire de bytes, fiecăruia corespunzându-i o adresă. In cazul în care dorim să stocăm o informație reprezentată pe mai mulți octeți va trebui să ținem cont de ordinea impusă de arhitectura sistemului, denumită endianness.
+Dacă o funcție returnează adresa unei variabile locale este obligatoriu ca aceasta să fie statică. Durata de viață a unei variabile locale se încheie odată cu terminarea execuției funcției în care a fost definită și de aceea adresa unei astfel de variabile nu trebuie transmisă în afara funcției.
+Numele unei funcții reprezintă adresa de memorie la care începe funcția. Un pointer la o funcție este o variabilă ce stochează adresa unei funcții ce poate fi apelată ulterior prin intermediul acelui pointer. Uzual, pointerii la funcții sunt folosiți pentru a trimite o funcție ca parametru unei alte funcții.**
 
 Laborator 03: Toolchain
 -----
