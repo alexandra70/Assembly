@@ -36,6 +36,7 @@ sum:
 iter:
     mov edi, [esi + ebx * 4]
     add edx, edi
+    inc ebx
     loop iter
 
     mov eax, edx
@@ -49,14 +50,20 @@ print_hex:
 
     ; TODO b
 
+    pusha 
+
+
     mov esi, [ebp + 8] ;; chr
     xor ebx, ebx
     xor ecx,ecx
 
 print_iter:
+    
+    xor ebx, ebx
     mov bl, [esi + ecx]
     test bl, bl
     jz gata_print_iter
+    xor bh, bh
     
     pusha
     push ebx
@@ -70,6 +77,10 @@ print_iter:
     jmp print_iter
 
 gata_print_iter:
+
+
+
+    popa
 
     leave
     ret
@@ -139,6 +150,17 @@ main:
     call print_hex
     add esp, 8
 
+    pusha
+    push printf_fmt_newline
+    call printf
+    add esp, 4
+    popa
+    pusha
+    push printf_fmt_newline
+    call printf
+    add esp, 4
+    popa
+
     ; OUTPUT Test b
     ; 54 68 69 73 20 69 73 20 74 65 6e 20 70 65 72 63 65 6e 74 20 6c 75 63 6b 2c \
     ; 20 74 77 65 6e 74 79 20 70 65 72 63 65 6e 74 20 73 6b 69 6c 6c 00
@@ -160,7 +182,7 @@ main:
     add esp, 8
 
 
-   pusha
+    pusha
     push printf_fmt_newline
     call printf
     add esp, 4
@@ -179,9 +201,7 @@ main:
     call print_hex
     add esp, 8
 
-
-
-       pusha
+    pusha
     push printf_fmt_newline
     call printf
     add esp, 4
@@ -198,13 +218,11 @@ main:
     call print_hex
     add esp, 4
 
-
    pusha
     push printf_fmt_newline
     call printf
     add esp, 4
     popa
-
 
     push msg2_len
     push key2_random
@@ -219,9 +237,7 @@ main:
     call print_hex
     add esp, 4
 
-
-
-       pusha
+    pusha
     push printf_fmt_newline
     call printf
     add esp, 4
