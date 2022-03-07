@@ -1,6 +1,5 @@
-# Lab-IOCLA
-
 >Laborator 01: Reprezentarea numerelor, operații pe biți și lucru cu memoria
+
 > Grup de 8 biți formează un octet (byte).
   XOR - ac valoare => 0, altfel 1.
 În sistemul hexazecimal (baza 16), valorile sunt reprezentate sub forma unui șir de caractere din intervalul '0'-'9' sau 'a'-'f'. Un octet este format din două astfel de caractere, deci fiecare caracter corespunde unui grup de 4 biți (un nibble).
@@ -8,6 +7,7 @@
 -----
 
 >Laborator 02: Operații cu memoria. Introducere în GDB
+
 >Pointeri la void
 Un pointer la void este un pointer care nu are un tip asociat.
 Pe cele mai multe calculatoare moderne, cea mai mică unitate de date care poate fi adresată este byte-ul/octetul (8 biți), acest lucru însemnând că putem privi datele în memorie drept o înșiruire de bytes, fiecăruia corespunzându-i o adresă. In cazul în care dorim să stocăm o informație reprezentată pe mai mulți octeți va trebui să ținem cont de ordinea impusă de arhitectura sistemului, denumită endianness.
@@ -15,11 +15,13 @@ Numele unei funcții reprezintă adresa de memorie la care începe funcția. Un 
 -----
 
 >Laborator 06: Lucrul cu stiva
+
 >La folosirea instructiunii popa, responsabila pentru restaurarea registrelor, valoare lui eax va fi pierduta.**
 Stiva creste de la adrese mari la adrese mici. Acesta este motivul pentru care alocarea memoriei pe stiva se face folosind instructiunea sub, iar eliberarea se face folosind instructiunea add.
 -----
 
 >Laborator 07: Apeluri de funcții
+
 >Atunci când apelăm o funcție, pașii sunt următorii:
 Punem argumentele pe stivă, apelul de tip push fiind în ordinea inversă în care sunt trimiși ca argumente funcției. Apelăm call. Restaurăm stiva la sfârșitul apelului.
 Apelul call poate fi echivalat cu urm secventa : push eip ; jmp function_name - se intampla la nivelul apelantului(caller). Adică și apelul call folosește în continuare stiva și salvează adresa -------următoarei instrucțiuni--------, cea de după call numită și instrucțiunea de retur sau adresa de retur (return address). Aceasta este necesară pentru a ști, în apelat, unde să revenim. 
